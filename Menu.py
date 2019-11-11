@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import filedialog
+import P1 as P1
 import sys
 
 
 def fileUpload():
-    filename = filedialog.askopenfilename(initialdir="/", title="Select file")
-    print(filename)
+    filename = filedialog.askopenfilename(
+        initialdir="\ ", title="Select file", filetypes=[("Text files", "*.json")])
+    P1.inicio(filename)
 
 
 def salir(self):

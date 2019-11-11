@@ -59,7 +59,6 @@ class BST:
         if(self._root):
             self._addNode(label, value, self._root)
         else:
-            print("Entre")
             self._root = Node(label, value)
 
     def _addNode(self, label, value, parent):
@@ -222,10 +221,9 @@ def cargar_datos(ruta):
         return lista
 
 
-if __name__ == '__main__':
-    ruta = 'datos.json'
+def inicio(ruta):
+    #ruta = "D:\TRABAJOS\TRABAJOS_LEGUAJES\Python\Proyect\FaseEntrega\datos.json"
     li = cargar_datos(ruta)
-    print(li)
 
     for i in range(len(li)):
         myTree.addNode(li[i], li[i])
@@ -235,3 +233,5 @@ if __name__ == '__main__':
     print("-------")
     print("postorder:")
     myTree.postorder()
+
+# if __name__ == '__main__':
