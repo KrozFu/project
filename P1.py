@@ -146,7 +146,7 @@ class BST:
             targetNode = self.searchNode(label)
             if(targetNode):
                 self._removeNode(targetNode)
-                print("The node has been removed successfuly")
+                print("The node has been removed successfully")
             else:
                 print("Element with label ", label, " does not exists!")
         else:
@@ -204,7 +204,12 @@ class BST:
             return node
 
 
+# Creacion del Arbol
 myTree = BST()
+
+
+def delNode(a):
+    myTree.removeNode(a)
 
 
 def cargar_datos(ruta):
@@ -221,8 +226,26 @@ def cargar_datos(ruta):
         return lista
 
 
+def mostrar():
+    print("preorder:")
+    myTree.preorder()
+    print("-------")
+    print("postorder:")
+    myTree.postorder()
+    print("-------")
+
+
+# Esta parte va el codigo de llamado
 def inicio(ruta):
-    #ruta = "D:\TRABAJOS\TRABAJOS_LEGUAJES\Python\Proyect\FaseEntrega\datos.json"
+    li = cargar_datos(ruta)
+
+    for i in range(len(li)):
+        myTree.addNode(li[i], li[i])
+
+
+"""
+if __name__ == '__main__':
+    ruta = "D:/TRABAJOS/TRABAJOS_LEGUAJES/Python/Proyect/FaseEntrega/datos.json"
     li = cargar_datos(ruta)
 
     for i in range(len(li)):
@@ -233,5 +256,11 @@ def inicio(ruta):
     print("-------")
     print("postorder:")
     myTree.postorder()
+    print("-------")
 
-# if __name__ == '__main__':
+    myTree.removeNode((11, 15))
+
+    print("postorder:")
+    myTree.postorder()
+    print("-------")
+"""
