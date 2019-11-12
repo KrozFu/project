@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox as mb
 import P1 as P1
+import matrizProyect as matrizProyect
 
 
 class Application:
@@ -64,12 +65,14 @@ class Application:
         delNode = tk.Menu(menubar)
         editmenu = tk.Menu(menubar)
         showmenu = tk.Menu(menubar)
+        drawmenu = tk.Menu(menubar)
 
         """ Menu de opciones """
         menubar.add_cascade(label="File", menu=filemenu)
         menubar.add_cascade(label="Delete Nodo", menu=delNode)
         menubar.add_cascade(label="Edit", menu=editmenu)
         menubar.add_cascade(label="Show", menu=showmenu)
+        menubar.add_cascade(label="Draw Nodes", menu=drawmenu)
 
         filemenu.add_cascade(label="File upload", command=self.fileUpload)
         filemenu.add_command(label="Exit", command=win.destroy)
@@ -79,6 +82,8 @@ class Application:
         editmenu.add_command(label="Sorry")
 
         showmenu.add_cascade(label="Show Tree", command=P1.mostrar)
+
+        drawmenu.add_cascade(label="Draw", commad=matrizProyect.inizialice)
 
 
 app = Application()

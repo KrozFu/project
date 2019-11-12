@@ -55,50 +55,51 @@ for i in range(len(lx)):
 
 
 # Valores calculados para trazar paredes
-for i in range(valy):
-    grid[i][lx[0]] = 10
+# for i in range(valy):
+#    grid[i][lx[0]] = 10
 
-# INICIALIZA PYGAME
-pygame.init()
+def inizialice():
+    # INICIALIZA PYGAME
+    pygame.init()
 
-# Establecemos el LARGO y ALTO de la pantalla
-DIMENSION_VENTANA = [800, 700]
-pantalla = pygame.display.set_mode(DIMENSION_VENTANA)
+    # Establecemos el LARGO y ALTO de la pantalla
+    DIMENSION_VENTANA = [800, 700]
+    pantalla = pygame.display.set_mode(DIMENSION_VENTANA)
 
-# Establecemos el título de la pantalla.
-pygame.display.set_caption("Mapeo de Casa")
+    # Establecemos el título de la pantalla.
+    pygame.display.set_caption("Mapeo de Casa")
 
-# Iteramos hasta que el usuario pulse el botón de salir.
-hecho = False
+    # Iteramos hasta que el usuario pulse el botón de salir.
+    hecho = False
 
-# Lo usamos para establecer cuán rápido de refresca la pantalla.
-reloj = pygame.time.Clock()
+    # Lo usamos para establecer cuán rápido de refresca la pantalla.
+    reloj = pygame.time.Clock()
 
-# -------- Bucle Principal del Programa-----------
-while not hecho:
-    for evento in pygame.event.get():
-        if evento.type == pygame.QUIT:
-            hecho = True
+    # -------- Bucle Principal del Programa-----------
+    while not hecho:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                hecho = True
 
-    # Establecemos el fondo de pantalla.
-    pantalla.fill(NEGRO)
+        # Establecemos el fondo de pantalla.
+        pantalla.fill(NEGRO)
 
-    # Dibujamos la retícula
-    for fila in range(valx):
-        for columna in range(valy):
-            color = BLANCO
-            if grid[fila][columna] == 1:
-                color = ROJO
-            if grid[fila][columna] == 10:
-                color = VERDE
-            pygame.draw.rect(pantalla, color, [
-                             (MARGEN+LARGO) * columna + MARGEN, (MARGEN+ALTO) * fila + MARGEN, LARGO, ALTO])
+        # Dibujamos la retícula
+        for fila in range(valx):
+            for columna in range(valy):
+                color = BLANCO
+                if grid[fila][columna] == 1:
+                    color = ROJO
+                # if grid[fila][columna] == 10:
+                #    color = VERDE
+                pygame.draw.rect(pantalla, color, [
+                                (MARGEN+LARGO) * columna + MARGEN, (MARGEN+ALTO) * fila + MARGEN, LARGO, ALTO])
 
-    # Limitamos a 60 fotogramas por segundo.
-    reloj.tick(60)
+        # Limitamos a 60 fotogramas por segundo.
+        reloj.tick(60)
 
-    # Avanzamos y actualizamos la pantalla con lo que hemos dibujado.
-    pygame.display.flip()
+        # Avanzamos y actualizamos la pantalla con lo que hemos dibujado.
+        pygame.display.flip()
 
-# Pórtate bien con el IDLE.
-pygame.quit()
+    # Pórtate bien con el IDLE.
+    pygame.quit()
