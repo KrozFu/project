@@ -83,7 +83,7 @@ class Application:
 
         showmenu.add_cascade(label="Show Tree", command=P1.mostrar)
 
-        drawmenu.add_cascade(label="Draw", commad=matrizProyect.inizialice)
+        drawmenu.add_cascade(label="Draw", command=matrizProyect.fuction)
 
 
 app = Application()

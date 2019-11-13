@@ -49,16 +49,17 @@ def cargar_datos(ruta):
 ruta = 'datos.json'
 cargar_datos(ruta)
 
+
 for i in range(len(lx)):
     y = valy - ly[i]
     grid[y-1][lx[i]] = 1
-
 
 # Valores calculados para trazar paredes
 # for i in range(valy):
 #    grid[i][lx[0]] = 10
 
-def inizialice():
+
+def fuction():
     # INICIALIZA PYGAME
     pygame.init()
 
@@ -102,4 +103,5 @@ def inizialice():
         pygame.display.flip()
 
     # Pórtate bien con el IDLE.
+
     pygame.quit()
