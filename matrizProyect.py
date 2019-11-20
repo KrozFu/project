@@ -38,25 +38,16 @@ lx = []
 ly = []
 
 
-def cargar_datos(ruta):
-    with open(ruta) as contenido:
-        res = json.load(contenido)
-        for punto in res:
-            lx.append(punto.get('X'))
-            ly.append(punto.get('Y'))
+def cargaDatos(lix, liy):
+    lx = lix
+    ly = liy
+    for i in range(len(lx)):
+        y = valy - ly[i]
+        grid[y-1][lx[i]] = 1
 
-
-ruta = 'datos.json'
-cargar_datos(ruta)
-
-
-for i in range(len(lx)):
-    y = valy - ly[i]
-    grid[y-1][lx[i]] = 1
-
-# Valores calculados para trazar paredes
-# for i in range(valy):
-#    grid[i][lx[0]] = 10
+    # Valores calculados para trazar paredes
+    # for i in range(valy):
+    #    grid[i][lx[0]] = 10
 
 
 def fuction():

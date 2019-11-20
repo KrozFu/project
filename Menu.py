@@ -52,6 +52,11 @@ class Application:
                            command=enviardatos)
         btSend.pack(side=tk.TOP)
 
+    def matrizPygame(self):
+        #mb.showinfo(message="Dates load", title="Error")
+        print("Envio de datos")
+        matrizProyect.fuction()
+
     def newWindow(self):
         # window.withdraw()
         win = tk.Toplevel()
@@ -83,7 +88,7 @@ class Application:
 
         showmenu.add_cascade(label="Show Tree", command=P1.mostrar)
 
-        drawmenu.add_cascade(label="Draw", command=matrizProyect.fuction)
+        drawmenu.add_cascade(label="Draw", command=self.matrizPygame)
 
 
 app = Application()

@@ -1,4 +1,5 @@
 import json
+import matrizProyect as matrizProyect
 
 
 class Node:
@@ -223,6 +224,7 @@ def cargar_datos(ruta):
             liy.append(punto.get('Y'))
         li = zip(lix, liy)
         lista = list(li)
+        matrizProyect.cargaDatos(lix, liy)
         return lista
 
 
