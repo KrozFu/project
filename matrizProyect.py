@@ -17,11 +17,11 @@ MARGEN = 2  # Color negro de las separaciones
 # Creamos un array bidimensional. Un array bidimensional
 # no es más que una lista de listas.
 
-#=====================
+# =====================
 '''Tamano de la matriz (Tamanos de entrada)'''
 valx = 25
 valy = 25
-#=====================
+# =====================
 
 grid = []
 for fila in range(valx):

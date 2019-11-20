@@ -243,26 +243,3 @@ def inicio(ruta):
 
     for i in range(len(li)):
         myTree.addNode(li[i], li[i])
-
-
-"""
-if __name__ == '__main__':
-    ruta = "D:/TRABAJOS/TRABAJOS_LEGUAJES/Python/Proyect/FaseEntrega/datos.json"
-    li = cargar_datos(ruta)
-
-    for i in range(len(li)):
-        myTree.addNode(li[i], li[i])
-
-    print("preorder:")
-    myTree.preorder()
-    print("-------")
-    print("postorder:")
-    myTree.postorder()
-    print("-------")
-
-    myTree.removeNode((11, 15))
-
-    print("postorder:")
-    myTree.postorder()
-    print("-------")
-"""
