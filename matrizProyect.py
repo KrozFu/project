@@ -14,11 +14,11 @@ ALTO = 20
 # Establecemos el margen entre las celdas.
 MARGEN = 2  # Color negro de las separaciones
 
-# Creamos un array bidimensional. Un array bidimensional
-# no es más que una lista de listas.
+# Creamos un array bidimensional. Un array bidimensional no es más que una lista de listas.
 
 # =====================
 '''Tamano de la matriz (Tamanos de entrada)'''
+# Matirz cuadros blancos
 valx = 25
 valy = 25
 # =====================
