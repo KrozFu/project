@@ -21,8 +21,9 @@ class Application:
         self.window.mainloop()
 
     def fileUpload(self):
+        #filename = filedialog.askopenfilename(initialdir="/", title="Select file", filetypes=[("Text files", "*.json")])
         filename = filedialog.askopenfilename(
-            initialdir="/", title="Select file", filetypes=[("Text files", "*.json")])
+            initialdir="D:\TRABAJOS\TRABAJOS_LEGUAJES\Python\Proyect\FaseEntrega", title="Select file", filetypes=[("Text files", "*.json")])
         # filename = filedialog.askopenfilename(initialdir="\ ", title="Select file", filetypes=[("Text files", "*.json")])
         P1.inicio(filename)
 

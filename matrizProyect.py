@@ -46,8 +46,17 @@ def cargaDatos(lix, liy):
         grid[y-1][lx[i]] = 1
 
     # Valores calculados para trazar paredes
-    # for i in range(valy):
-    #    grid[i][lx[0]] = 10
+    for i in range(valy):
+        y = valy - ly[0]
+        if(y-1 != i):
+            grid[i][lx[0]] = 2
+
+    for i in range(valx):
+        y = valy - ly[1]
+        if(i != lx[1]):
+            if(grid[y-1][i] == 2):
+                break
+            grid[y-1][i] = 2
 
 
 def fuction():
@@ -82,8 +91,10 @@ def fuction():
                 color = BLANCO
                 if grid[fila][columna] == 1:
                     color = ROJO
-                # if grid[fila][columna] == 10:
-                #    color = VERDE
+                if grid[fila][columna] == 2:
+                    color = VERDE
+                if grid[fila][columna] == 3:
+                    color = NEGRO
                 pygame.draw.rect(pantalla, color, [
                                 (MARGEN+LARGO) * columna + MARGEN, (MARGEN+ALTO) * fila + MARGEN, LARGO, ALTO])
 
