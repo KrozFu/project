@@ -46,17 +46,22 @@ def cargaDatos(lix, liy):
         grid[y-1][lx[i]] = 1
 
     # Valores calculados para trazar paredes
+    # Pinta Verticalmente
     for i in range(valy):
         y = valy - ly[0]
         if(y-1 != i):
             grid[i][lx[0]] = 2
 
+    # Pinta Horizontalmente
     for i in range(valx):
         y = valy - ly[1]
         if(i != lx[1]):
             if(grid[y-1][i] == 2):
                 break
             grid[y-1][i] = 2
+
+    for i in range(valy):
+        y = valy - ly[0]
 
 
 def fuction():
