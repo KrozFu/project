@@ -56,29 +56,56 @@ class BST:
     def __init__(self):
         self._root = None
 
-    def addNode(self, label, value):
+    def addNode(self, label, value, var):
         if(self._root):
-            self._addNode(label, value, self._root)
+            self._addNode(label, value, self._root, var)
         else:
             self._root = Node(label, value)
 
-    def _addNode(self, label, value, parent):
-        if(value > parent.getValue()):
-            rc = parent.hasRightChild()
-            if(rc):
-                self._addNode(label, value, rc)
+    def _addNode(self, label, value, parent, var):
+        lisa = []
+        k = []
+        lisa.append(parent.getValue())
+        k.append(value)
+
+        if(var == 0):
+            if(k[0][0] >= lisa[0][0]):
+                rc = parent.hasRightChild()
+                if(rc):
+                    self._addNode(label, value, rc, var+1)
+                else:
+                    var = 0
+                    newNode = Node(label, value, parent)
+                    parent.setRightChild(newNode)
+            elif(k[0][0] < lisa[0][0]):
+                lc = parent.hasLeftChild()
+                if(lc):
+                    self._addNode(label, value, lc, var+1)
+                else:
+                    var = 0
+                    newNode = Node(label, value, parent)
+                    parent.setLeftChild(newNode)
             else:
-                newNode = Node(label, value, parent)
-                parent.setRightChild(newNode)
-        elif(value < parent.getValue()):
-            lc = parent.hasLeftChild()
-            if(lc):
-                self._addNode(label, value, lc)
-            else:
-                newNode = Node(label, value, parent)
-                parent.setLeftChild(newNode)
+                print("This node with value: ", value, " already exists!")
         else:
-            print("This node with value: ", value, " already exists!")
+            if(k[0][1] >= lisa[0][1]):
+                rc = parent.hasRightChild()
+                if(rc):
+                    self._addNode(label, value, rc, var+1)
+                else:
+                    var = 0
+                    newNode = Node(label, value, parent)
+                    parent.setRightChild(newNode)
+            elif(k[0][1] < lisa[0][1]):
+                lc = parent.hasLeftChild()
+                if(lc):
+                    self._addNode(label, value, lc, var+1)
+                else:
+                    var = 0
+                    newNode = Node(label, value, parent)
+                    parent.setLeftChild(newNode)
+            else:
+                print("This node with value: ", value, " already exists!")
 
     def searchNode(self, label):
         if(self._root):
@@ -204,6 +231,19 @@ class BST:
         else:
             return node
 
+    def altura(self):
+        if(self._root != None):
+            return self._altura(self._root, 0)
+        else:
+            return 0
+
+    def _altura(self, arbol, altura):
+        if(arbol == None):
+            return altura
+        left_height = self._altura(arbol.hasRightChild(), altura+1)
+        right_height = self._altura(arbol.hasLeftChild(), altura+1)
+        return max(left_height, right_height)
+
 
 # Creacion del Arbol
 myTree = BST()
@@ -235,12 +275,14 @@ def mostrar():
     print("postorder:")
     myTree.postorder()
     print("-------")
-
+    print("Altura")
+    print(myTree.altura())
 # Esta parte va el codigo de llamado
 
 
 def inicio(ruta):
     li = cargar_datos(ruta)
+    var = 0
 
     for i in range(len(li)):
-        myTree.addNode(li[i], li[i])
+        myTree.addNode(li[i], li[i], var)
