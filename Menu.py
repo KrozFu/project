@@ -4,6 +4,8 @@ from tkinter import messagebox as mb
 import P1 as P1
 import matrizProyect as matrizProyect
 
+# Esta parte fue agregada desde linux
+
 
 class Application:
     def __init__(self):
@@ -21,10 +23,11 @@ class Application:
         self.window.mainloop()
 
     def fileUpload(self):
-        #filename = filedialog.askopenfilename(initialdir="/", title="Select file", filetypes=[("Text files", "*.json")])
+
+        # filename = filedialog.askopenfilename(initialdir="/", title="Select file", filetypes=[("Text files", "*.json")])
+        # 1 filename = filedialog.askopenfilename(initialdir="D:\TRABAJOS\TRABAJOS_LEGUAJES\Python\Proyect\FaseEntrega", title="Select file", filetypes=[("Text files", "*.json")])
         filename = filedialog.askopenfilename(
-            initialdir="D:\TRABAJOS\TRABAJOS_LEGUAJES\Python\Proyect\FaseEntrega", title="Select file", filetypes=[("Text files", "*.json")])
-        # filename = filedialog.askopenfilename(initialdir="\ ", title="Select file", filetypes=[("Text files", "*.json")])
+            initialdir="\ ", title="Select file", filetypes=[("Text files", "*.json")])
         P1.inicio(filename)
 
     def loadDates(self):
@@ -80,16 +83,17 @@ class Application:
         menubar.add_cascade(label="Show", menu=showmenu)
         menubar.add_cascade(label="Draw Nodes", menu=drawmenu)
 
-        filemenu.add_cascade(label="File upload", command=self.fileUpload)
+        # filemenu.add_cascade(label="File upload", command=self.fileUpload)
+        filemenu.add_command(label="File upload", command=self.fileUpload)
         filemenu.add_command(label="Exit", command=win.destroy)
 
-        delNode.add_cascade(label="Load Dates", command=self.loadDates)
+        delNode.add_command(label="Load Dates", command=self.loadDates)
 
         editmenu.add_command(label="Sorry")
 
-        showmenu.add_cascade(label="Show Tree", command=P1.mostrar)
+        showmenu.add_command(label="Show Tree", command=P1.mostrar)
 
-        drawmenu.add_cascade(label="Draw", command=self.matrizPygame)
+        drawmenu.add_command(label="Draw", command=self.matrizPygame)
 
 
 app = Application()

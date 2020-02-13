@@ -236,8 +236,9 @@ def mostrar():
     myTree.postorder()
     print("-------")
 
-
 # Esta parte va el codigo de llamado
+
+
 def inicio(ruta):
     li = cargar_datos(ruta)
 
